@@ -5,11 +5,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './HomeScreen';
 import FriendsScreen from './FriendsScreen';
+import { FriendsContext } from './FriendsContext';
 
 const Stack = createStackNavigator();
 
 class App extends React.Component {
-  
+
   constructor(props) {
     super(props)
     this.state = {
@@ -43,6 +44,14 @@ class App extends React.Component {
 
   render() {
     return (
+      <FriendsContext.Provider>
+        value={
+          {
+            currentFriends: this.state.currentFriends,
+            possibleFriends: this.state.possibleFriends,
+            addFriend: this.addFriend
+          }
+        }
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
@@ -55,6 +64,7 @@ class App extends React.Component {
           />
         </Stack.Navigator>
       </NavigationContainer>
+      </FriendsContext.Provider>
     );
   }
 }
