@@ -14,31 +14,31 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      possibleFriends: [
+      amigosPosibles: [
         'Alice',
         'Bob',
         'Sammy',
       ],
-      currentFriends: [],
+      amigosActuales: [],
     }
   }
 
-  addFriend = (index) => {
+  agregarAmigo = (index) => {
     const {
-      currentFriends,
-      possibleFriends,
+      amigosActuales,
+      amigosPosibles,
     } = this.state
 
-    // Pull friend out of possibleFriends
-    const addedFriend = possibleFriends.splice(index, 1)
+    // Sacar amigo de posibles amigos
+    const amigoAñadido = amigosPosibles.splice(index, 1)
 
-    // And put friend in currentFriends
-    currentFriends.push(addedFriend)
+    // Agregar amigo a amigosActuales
+    amigosActuales.push(amigoAñadido)
 
-    // Finally, update the app state
+    // Actualizar el estado de App
     this.setState({
-      currentFriends,
-      possibleFriends,
+      amigosActuales,
+      amigosPosibles,
     })
   }
 
@@ -47,9 +47,9 @@ class App extends React.Component {
       <FriendsContext.Provider>
         value={
           {
-            currentFriends: this.state.currentFriends,
-            possibleFriends: this.state.possibleFriends,
-            addFriend: this.addFriend
+            amigosActuales: this.state.amigosActuales,
+            amigosPosibles: this.state.amigosPosibles,
+            agregarAmigo: this.agregarAmigo
           }
         }
       <NavigationContainer>

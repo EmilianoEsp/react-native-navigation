@@ -6,10 +6,10 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>You have { this.context.currentFriends.length } friends.</Text>
+        <Text>Tienes { this.context.amigosActuales.length } amigos.</Text>
 
         <Button
-          title="Add some friends"
+          title="Añade algunos amigos!"
           onPress={() =>
             this.props.navigation.navigate('Friends')
           }
