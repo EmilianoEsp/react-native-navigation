@@ -3,9 +3,10 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './HomeScreen';
-import FriendsScreen from './FriendsScreen';
-import { FriendsContext } from './FriendsContext';
+import HomeScreen from './screens/HomeScreen';
+import FriendsScreen from './screens/FriendsScreen';
+import { FriendsContext } from './screens/FriendsContext';
+import Inicio from './screens/Inicio';
 
 const Stack = createStackNavigator();
 
@@ -61,6 +62,10 @@ class App extends React.Component {
           <Stack.Screen
             name="Friends"
             component={FriendsScreen}
+          />
+          <Stack.Screen
+            name="Inicio"
+            component={Inicio}
           />
         </Stack.Navigator>
       </NavigationContainer>
